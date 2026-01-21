@@ -30,7 +30,9 @@
         android:layout_marginTop="32dp"
         android:text="@string/login"
         android:textAllCaps="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDesc"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="161dp" />
+        tools:layout_editor_absoluteX="161dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
