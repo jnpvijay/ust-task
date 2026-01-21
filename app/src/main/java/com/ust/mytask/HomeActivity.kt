@@ -10,6 +10,7 @@ import android.util.Base64
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.ust.mytask.ui.detail.DetailFragment
 import com.ust.mytask.ui.home.HomeFragment
 import com.ust.mytask.ui.login.LoginFragment
 import net.openid.appauth.AuthState
@@ -55,6 +56,13 @@ class HomeActivity : AppCompatActivity() {
     private fun navigateHomeScreen() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.frameContainer, HomeFragment())
+            .commit()
+    }
+
+    public fun navigateDetailScreen() {
+        supportFragmentManager.beginTransaction()
+            .add(R.id.frameContainer, DetailFragment())
+            .addToBackStack("detail")
             .commit()
     }
 

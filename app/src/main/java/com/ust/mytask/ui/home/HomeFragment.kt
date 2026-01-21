@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
+import com.ust.mytask.HomeActivity
 import com.ust.mytask.R
 import com.ust.mytask.model.database.AppDatabase
 import com.ust.mytask.model.repository.MdnsRepository
@@ -19,16 +21,13 @@ class HomeFragment : Fragment() {
     private lateinit var adapter: MdnsAdapter
     private lateinit var scanner: MdnsScanner
 
-    private var recyclerView : RecyclerView? = null
-
-    private lateinit var view: View
+    private var recyclerView: RecyclerView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        view = inflater.inflate(R.layout.home_screen, container, false)
-        return view
+        return inflater.inflate(R.layout.home_screen, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,6 +35,10 @@ class HomeFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.recyclerviewMdns)
         recyclerView?.adapter = adapter
+
+        adapter.onItemClick = { device ->
+            (activity as? HomeActivity)?.navigateDetailScreen()
+        }
 
         val dao = AppDatabase.get(requireContext()).mdnsDao()
         val repo = MdnsRepository(dao)

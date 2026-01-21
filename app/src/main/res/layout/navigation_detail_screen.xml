@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -25,7 +26,7 @@
                 android:id="@+id/txtIpAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="192.168.5.1" />
+                android:text="" />
 
         </LinearLayout>
 
@@ -42,7 +43,7 @@
             android:id="@+id/txtOrg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="AS9829 National Internet Backbone" />
+            android:text="NA" />
 
         <!-- City -->
         <TextView
@@ -56,7 +57,7 @@
             android:id="@+id/txtCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mumbai" />
+            android:text="NA" />
 
         <!-- Region -->
         <TextView
@@ -70,7 +71,7 @@
             android:id="@+id/txtRegion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Maharashtra" />
+            android:text="NA" />
 
         <!-- Country -->
         <TextView
@@ -81,10 +82,10 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvCountry"
+            android:id="@+id/txtCountry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="IN" />
+            android:text="NA" />
 
 
         <!-- Postal -->
@@ -99,7 +100,7 @@
             android:id="@+id/txtPostal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="400017" />
+            android:text="NA" />
 
 
     </LinearLayout>

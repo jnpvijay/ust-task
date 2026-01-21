@@ -12,6 +12,8 @@ class MdnsAdapter : RecyclerView.Adapter<MdnsAdapter.VH>() {
 
     private var list = emptyList<MdnsDevice>()
 
+    var onItemClick: ((MdnsDevice) -> Unit)? = null
+
     fun submitList(newList: List<MdnsDevice>) {
         list = newList
         notifyDataSetChanged()
@@ -29,6 +31,10 @@ class MdnsAdapter : RecyclerView.Adapter<MdnsAdapter.VH>() {
         val d = list[position]
         holder.view.findViewById<TextView>(R.id.txtDeviceName).text = d.name
         holder.view.findViewById<TextView>(R.id.txtIpAddress).text = d.ip ?: "N/A"
+
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(d)
+        }
     }
 
     override fun getItemCount() = list.size
