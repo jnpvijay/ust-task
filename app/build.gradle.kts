@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -14,7 +15,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        manifestPlaceholders["appAuthRedirectScheme"] = "com.example.yourapp"
+        manifestPlaceholders["appAuthRedirectScheme"] = "com.ust.mytask"
     }
 
     buildTypes {
@@ -37,12 +38,17 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.jmdns.jmdns)
     implementation(libs.appauth)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.room.runtime.android)
+    implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
